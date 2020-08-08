@@ -25,14 +25,6 @@ namespace Snake_Game
         /// </summary>
         static void MainMenu()
             {
-            /*
-             * \u2554 = ╔
-             * \u255A = ╚ 
-             * \u2557 = ╗
-             * \u255D = ╝
-             * \u2551 = ║
-             * \u2550 = ═
-             */
             Console.Clear();
             Console.WriteLine("Main Menu\n");
             Console.WriteLine("Press 'N' to start a new game");
