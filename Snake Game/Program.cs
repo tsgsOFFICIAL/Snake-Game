@@ -78,11 +78,11 @@ namespace Snake_Game
             {
             Console.Clear();
             Console.WriteLine("Controls Menu\n");
-            Console.WriteLine("Left   = '{0}' (L)", Control.moveLeft);
-            Console.WriteLine("Right  = '{0}' (R)", Control.moveRight);
-            Console.WriteLine("Up     = '{0}' (U)", Control.moveUp);
-            Console.WriteLine("Down   = '{0}' (D)\n", Control.moveDown);
-            Console.WriteLine("Pause  = '{0}' (P)\n", Control.pause);
+            Console.WriteLine("Left   = '{0}' (L)", Control.MoveLeft);
+            Console.WriteLine("Right  = '{0}' (R)", Control.MoveRight);
+            Console.WriteLine("Up     = '{0}' (U)", Control.MoveUp);
+            Console.WriteLine("Down   = '{0}' (D)\n", Control.MoveDown);
+            Console.WriteLine("Pause  = '{0}' (P)\n", Control.Pause);
             Console.WriteLine("Return = {ENTER}");
 
             bool keepGoing = false;
@@ -98,7 +98,7 @@ namespace Snake_Game
                         key = Console.ReadKey(true);
                         if (ValidateSetings(key.KeyChar))
                             {
-                            Control.moveLeft = Console.ReadKey(false).KeyChar;
+                            Control.MoveLeft = Console.ReadKey(false).KeyChar;
                             }
                         else
                             {
@@ -114,7 +114,7 @@ namespace Snake_Game
                         key = Console.ReadKey(true);
                         if (ValidateSetings(key.KeyChar))
                             {
-                            Control.moveRight = Console.ReadKey(false).KeyChar;
+                            Control.MoveRight = Console.ReadKey(false).KeyChar;
                             }
                         else
                             {
@@ -130,7 +130,7 @@ namespace Snake_Game
                         key = Console.ReadKey(true);
                         if (ValidateSetings(key.KeyChar))
                             {
-                            Control.moveUp = Console.ReadKey(false).KeyChar;
+                            Control.MoveUp = Console.ReadKey(false).KeyChar;
                             }
                         else
                             {
@@ -146,7 +146,7 @@ namespace Snake_Game
                         key = Console.ReadKey(true);
                         if (ValidateSetings(key.KeyChar))
                             {
-                            Control.moveDown = Console.ReadKey(false).KeyChar;
+                            Control.MoveDown = Console.ReadKey(false).KeyChar;
                             }
                         else
                             {
@@ -158,11 +158,11 @@ namespace Snake_Game
                         break;
                     case ConsoleKey.P:
                         keepGoing = true;
-                        Console.Write("\nChange pause: ");
+                        Console.Write("\nChange Pause: ");
                         key = Console.ReadKey(true);
                         if (ValidateSetings(key.KeyChar))
                             {
-                            Control.pause = Console.ReadKey(false).KeyChar;
+                            Control.Pause = Console.ReadKey(false).KeyChar;
                             }
                         else
                             {
@@ -344,11 +344,11 @@ namespace Snake_Game
                     setting[i] = Convert.ToChar(_setting[i].Trim());
                     }
 
-                Control.moveLeft = setting[0];
-                Control.moveRight = setting[1];
-                Control.moveUp = setting[2];
-                Control.moveDown = setting[3];
-                Control.pause = setting[4];
+                Control.MoveLeft = setting[0];
+                Control.MoveRight = setting[1];
+                Control.MoveUp = setting[2];
+                Control.MoveDown = setting[3];
+                Control.Pause = setting[4];
                 Asset.SnakeHead = setting[5];
                 Asset.SnakeBody = setting[6];
                 Asset.Food = setting[7];
@@ -363,11 +363,11 @@ namespace Snake_Game
         static void SaveSettings()
             {
             string[] setting = new string[10];
-            setting[0] = $"{Control.moveLeft}";
-            setting[1] = $"{Control.moveRight}";
-            setting[2] = $"{Control.moveUp}";
-            setting[3] = $"{Control.moveDown}";
-            setting[4] = $"{Control.pause}";
+            setting[0] = $"{Control.MoveLeft}";
+            setting[1] = $"{Control.MoveRight}";
+            setting[2] = $"{Control.MoveUp}";
+            setting[3] = $"{Control.MoveDown}";
+            setting[4] = $"{Control.Pause}";
             setting[5] = $"{Asset.SnakeHead}";
             setting[6] = $"{Asset.SnakeBody}";
             setting[7] = $"{Asset.Food}";
@@ -394,11 +394,11 @@ namespace Snake_Game
         static bool ValidateSetings(char changed)
             {
             string[] setting = new string[9];
-            setting[0] = $"{Control.moveLeft}";
-            setting[1] = $"{Control.moveRight}";
-            setting[2] = $"{Control.moveUp}";
-            setting[3] = $"{Control.moveDown}";
-            setting[4] = $"{Control.pause}";
+            setting[0] = $"{Control.MoveLeft}";
+            setting[1] = $"{Control.MoveRight}";
+            setting[2] = $"{Control.MoveUp}";
+            setting[3] = $"{Control.MoveDown}";
+            setting[4] = $"{Control.Pause}";
             setting[5] = $"{Asset.SnakeHead}";
             setting[6] = $"{Asset.SnakeBody}";
             setting[7] = $"{Asset.Food}";
