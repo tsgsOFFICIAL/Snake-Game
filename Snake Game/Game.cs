@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Snake_Game
     {
@@ -13,6 +10,7 @@ namespace Snake_Game
         /// </summary>
         public static void Start()
             {
+            Console.Clear();
 
             }
         }
