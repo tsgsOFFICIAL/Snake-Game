@@ -184,31 +184,31 @@ namespace Snake_Game
             }
 
         /// <summary>
-        /// Display the Graphics menu, here the user can see and change most of the graphics, except for the border
+        /// Display the Graphics menu, here the user can see and change most of the graphics, except for the Border
         /// </summary>
         static void GraphicsMenu()
             {
             Console.Clear();
             Console.WriteLine("Graphics Menu\n");
-            Console.WriteLine("Border       = {0} {1} {2} {3} {4} {5}", Asset.border[0], Asset.border[1], Asset.border[2], Asset.border[3], Asset.border[4], Asset.border[5]);
+            Console.WriteLine("Border       = {0} {1} {2} {3} {4} {5}", Asset.Border[0], Asset.Border[1], Asset.Border[2], Asset.Border[3], Asset.Border[4], Asset.Border[5]);
             Console.WriteLine("Empty space  = ");
-            Console.WriteLine("Snake Head   = '{0}'         (H)", Asset.snakeHead);
-            Console.WriteLine("Snake Body   = '{0}'         (B)", Asset.snakeBody);
+            Console.WriteLine("Snake Head   = '{0}'         (H)", Asset.SnakeHead);
+            Console.WriteLine("Snake Body   = '{0}'         (B)", Asset.SnakeBody);
             Console.Write("Food         = '");
 
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("{0}", Asset.food);
+            Console.Write("{0}", Asset.Food);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("'         (F)");
 
             Console.Write("Death        = '");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("{0}", Asset.death);
+            Console.Write("{0}", Asset.Death);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("'         (D)\n");
 
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Growth Rate  = {0}           (G)\n", Asset.growthRate);
+            Console.WriteLine("Growth Rate  = {0}           (G)\n", Asset.GrowthRate);
             Console.WriteLine("Return = {ENTER}");
 
             bool keepGoing = false;
@@ -224,7 +224,7 @@ namespace Snake_Game
                         key = Console.ReadKey(true);
                         if (ValidateSetings(key.KeyChar))
                             {
-                            Asset.snakeHead = Console.ReadKey(false).KeyChar;
+                            Asset.SnakeHead = Console.ReadKey(false).KeyChar;
                             }
                         else
                             {
@@ -240,7 +240,7 @@ namespace Snake_Game
                         key = Console.ReadKey(true);
                         if (ValidateSetings(key.KeyChar))
                             {
-                            Asset.snakeBody = Console.ReadKey(false).KeyChar;
+                            Asset.SnakeBody = Console.ReadKey(false).KeyChar;
                             }
                         else
                             {
@@ -252,11 +252,11 @@ namespace Snake_Game
                         break;
                     case ConsoleKey.F:
                         keepGoing = true;
-                        Console.Write("\nChange food: ");
+                        Console.Write("\nChange Food: ");
                         key = Console.ReadKey(true);
                         if (ValidateSetings(key.KeyChar))
                             {
-                            Asset.food = Console.ReadKey(false).KeyChar;
+                            Asset.Food = Console.ReadKey(false).KeyChar;
                             }
                         else
                             {
@@ -268,11 +268,11 @@ namespace Snake_Game
                         break;
                     case ConsoleKey.D:
                         keepGoing = true;
-                        Console.Write("\nChange death: ");
+                        Console.Write("\nChange Death: ");
                         key = Console.ReadKey(true);
                         if (ValidateSetings(key.KeyChar))
                             {
-                            Asset.death = Console.ReadKey(false).KeyChar;
+                            Asset.Death = Console.ReadKey(false).KeyChar;
                             }
                         else
                             {
@@ -290,7 +290,7 @@ namespace Snake_Game
                             {
                             try
                                 {
-                                Asset.growthRate = Convert.ToInt32(Console.ReadLine());
+                                Asset.GrowthRate = Convert.ToInt32(Console.ReadLine());
                                 }
                             catch (Exception)
                                 { }
@@ -349,11 +349,11 @@ namespace Snake_Game
                 Control.moveUp = setting[2];
                 Control.moveDown = setting[3];
                 Control.pause = setting[4];
-                Asset.snakeHead = setting[5];
-                Asset.snakeBody = setting[6];
-                Asset.food = setting[7];
-                Asset.death = setting[8];
-                Asset.growthRate = Convert.ToInt32(_setting[9]);
+                Asset.SnakeHead = setting[5];
+                Asset.SnakeBody = setting[6];
+                Asset.Food = setting[7];
+                Asset.Death = setting[8];
+                Asset.GrowthRate = Convert.ToInt32(_setting[9]);
                 }
             }
 
@@ -368,11 +368,11 @@ namespace Snake_Game
             setting[2] = $"{Control.moveUp}";
             setting[3] = $"{Control.moveDown}";
             setting[4] = $"{Control.pause}";
-            setting[5] = $"{Asset.snakeHead}";
-            setting[6] = $"{Asset.snakeBody}";
-            setting[7] = $"{Asset.food}";
-            setting[8] = $"{Asset.death}";
-            setting[9] = $"{Asset.growthRate}";
+            setting[5] = $"{Asset.SnakeHead}";
+            setting[6] = $"{Asset.SnakeBody}";
+            setting[7] = $"{Asset.Food}";
+            setting[8] = $"{Asset.Death}";
+            setting[9] = $"{Asset.GrowthRate}";
             try
                 {
                 StreamWriter writer = new StreamWriter(Path.GetTempPath() + "snakeSettings.tsgs");
@@ -399,10 +399,10 @@ namespace Snake_Game
             setting[2] = $"{Control.moveUp}";
             setting[3] = $"{Control.moveDown}";
             setting[4] = $"{Control.pause}";
-            setting[5] = $"{Asset.snakeHead}";
-            setting[6] = $"{Asset.snakeBody}";
-            setting[7] = $"{Asset.food}";
-            setting[8] = $"{Asset.death}";
+            setting[5] = $"{Asset.SnakeHead}";
+            setting[6] = $"{Asset.SnakeBody}";
+            setting[7] = $"{Asset.Food}";
+            setting[8] = $"{Asset.Death}";
 
             for (int i = 0; i < setting.Length; i++)
                 {
