@@ -19,7 +19,7 @@ namespace Snake_Game
             LoadSettings();
             MainMenu();
             }
-        
+
         /// <summary>
         /// Display the Main menu
         /// </summary>
@@ -319,13 +319,31 @@ namespace Snake_Game
         /// </summary>
         static void LoadSettings()
             {
-            string[] _setting = null;
+            string[] _setting = new string[10];
             char[] setting = new char[10];
             if (File.Exists(Path.GetTempPath() + "snakeSettings.tsgs"))
                 {
                 try
                     {
                     _setting = File.ReadAllLines(Path.GetTempPath() + "snakeSettings.tsgs");
+                    if (!_setting[9].Trim().Equals(""))
+                        {
+                        for (int i = 0; i < _setting.Length - 1; i++)
+                            {
+                            setting[i] = Convert.ToChar(_setting[i].Trim());
+                            }
+
+                        Control.MoveLeft = setting[0];
+                        Control.MoveRight = setting[1];
+                        Control.MoveUp = setting[2];
+                        Control.MoveDown = setting[3];
+                        Control.Pause = setting[4];
+                        Asset.SnakeHead = setting[5];
+                        Asset.SnakeBody = setting[6];
+                        Asset.Food = setting[7];
+                        Asset.Death = setting[8];
+                        Asset.GrowthRate = Convert.ToInt32(_setting[9]);
+                        }
                     }
                 catch (Exception)
                     { }
@@ -335,25 +353,6 @@ namespace Snake_Game
                 Console.WriteLine("No settings found, loading original settings");
                 Thread.Sleep(1250);
                 MainMenu();
-                }
-
-            if (_setting.Length == 10)
-                {
-                for (int i = 0; i < _setting.Length - 1; i++)
-                    {
-                    setting[i] = Convert.ToChar(_setting[i].Trim());
-                    }
-
-                Control.MoveLeft = setting[0];
-                Control.MoveRight = setting[1];
-                Control.MoveUp = setting[2];
-                Control.MoveDown = setting[3];
-                Control.Pause = setting[4];
-                Asset.SnakeHead = setting[5];
-                Asset.SnakeBody = setting[6];
-                Asset.Food = setting[7];
-                Asset.Death = setting[8];
-                Asset.GrowthRate = Convert.ToInt32(_setting[9]);
                 }
             }
 
