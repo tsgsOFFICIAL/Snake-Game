@@ -19,7 +19,7 @@ namespace Snake_Game
             LoadSettings();
             MainMenu();
             }
-
+        
         /// <summary>
         /// Display the Main menu
         /// </summary>
