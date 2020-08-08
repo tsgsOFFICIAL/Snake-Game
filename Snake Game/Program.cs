@@ -94,34 +94,81 @@ namespace Snake_Game
             Console.WriteLine("Return = {ENTER}");
 
             bool keepGoing = false;
-            while (keepGoing != true)
+            ConsoleKeyInfo key;
+            do
                 {
-                switch (Console.ReadKey(true).Key)
+                key = Console.ReadKey(true);
+                switch (key.Key)
                     {
                     case ConsoleKey.L:
                         keepGoing = true;
                         Console.Write("\nChange left: ");
-                        Control.moveLeft = Console.ReadKey(false).KeyChar;
+                        if (ValidateSetings(key.KeyChar))
+                            {
+                            Control.moveLeft = Console.ReadKey(false).KeyChar;
+                            }
+                        else
+                            {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\nERROR, You can't have 2 duplicates!");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            }
                         break;
                     case ConsoleKey.R:
                         keepGoing = true;
-                        Console.Write("\nChange left: ");
-                        Control.moveRight = Console.ReadKey(false).KeyChar;
+                        Console.Write("\nChange right: ");
+                        if (ValidateSetings(key.KeyChar))
+                            {
+                            Control.moveRight = Console.ReadKey(false).KeyChar;
+                            }
+                        else
+                            {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\nERROR, You can't have 2 duplicates!");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            }
                         break;
                     case ConsoleKey.U:
                         keepGoing = true;
-                        Console.Write("\nChange left: ");
-                        Control.moveUp = Console.ReadKey(false).KeyChar;
+                        Console.Write("\nChange up: ");
+                        if (ValidateSetings(key.KeyChar))
+                            {
+                            Control.moveUp = Console.ReadKey(false).KeyChar;
+                            }
+                        else
+                            {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\nERROR, You can't have 2 duplicates!");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            }
                         break;
                     case ConsoleKey.D:
                         keepGoing = true;
-                        Console.Write("\nChange left: ");
-                        Control.moveDown = Console.ReadKey(false).KeyChar;
+                        Console.Write("\nChange down: ");
+                        if (ValidateSetings(key.KeyChar))
+                            {
+                            Control.moveDown = Console.ReadKey(false).KeyChar;
+                            }
+                        else
+                            {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\nERROR, You can't have 2 duplicates!");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            }
                         break;
                     case ConsoleKey.P:
                         keepGoing = true;
-                        Console.Write("\nChange left: ");
-                        Control.pause = Console.ReadKey(false).KeyChar;
+                        Console.Write("\nChange pause: ");
+                        if (ValidateSetings(key.KeyChar))
+                            {
+                            Control.pause = Console.ReadKey(false).KeyChar;
+                            }
+                        else
+                            {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\nERROR, You can't have 2 duplicates!");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            }
                         break;
                     case ConsoleKey.Enter:
                         SaveSettings();
@@ -129,6 +176,7 @@ namespace Snake_Game
                         break;
                     }
                 }
+            while (keepGoing != true);
             SaveSettings();
             ControlsMenu();
             }
@@ -162,39 +210,86 @@ namespace Snake_Game
             Console.WriteLine("Return = {ENTER}");
 
             bool keepGoing = false;
-            while (keepGoing != true)
+            ConsoleKeyInfo key;
+            do
                 {
-                switch (Console.ReadKey(true).Key)
+                key = Console.ReadKey(true);
+                switch (key.Key)
                     {
                     case ConsoleKey.H:
                         keepGoing = true;
                         Console.Write("\nChange head: ");
-                        Asset.snakeHead = Console.ReadKey(false).KeyChar;
+                        if (ValidateSetings(key.KeyChar))
+                            {
+                            Asset.snakeHead = Console.ReadKey(false).KeyChar;
+                            }
+                        else
+                            {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\nERROR, You can't have 2 duplicates!");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            }
                         break;
                     case ConsoleKey.B:
                         keepGoing = true;
                         Console.Write("\nChange body: ");
-                        Asset.snakeBody = Console.ReadKey(false).KeyChar;
+                        if (ValidateSetings(key.KeyChar))
+                            {
+                            Asset.snakeBody = Console.ReadKey(false).KeyChar;
+                            }
+                        else
+                            {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\nERROR, You can't have 2 duplicates!");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            }
                         break;
                     case ConsoleKey.F:
                         keepGoing = true;
                         Console.Write("\nChange food: ");
-                        Asset.food = Console.ReadKey(false).KeyChar;
+                        if (ValidateSetings(key.KeyChar))
+                            {
+                            Asset.food = Console.ReadKey(false).KeyChar;
+                            }
+                        else
+                            {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\nERROR, You can't have 2 duplicates!");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            }
                         break;
                     case ConsoleKey.D:
                         keepGoing = true;
                         Console.Write("\nChange death: ");
-                        Asset.death = Console.ReadKey(false).KeyChar;
+                        if (ValidateSetings(key.KeyChar))
+                            {
+                            Asset.death = Console.ReadKey(false).KeyChar;
+                            }
+                        else
+                            {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\nERROR, You can't have 2 duplicates!");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            }
                         break;
                     case ConsoleKey.G:
                         keepGoing = true;
                         Console.Write("\nChange growth: ");
-                        try
+                        if (ValidateSetings(key.KeyChar))
                             {
-                            Asset.growthRate = Convert.ToInt32(Console.ReadLine());
+                            try
+                                {
+                                Asset.growthRate = Convert.ToInt32(Console.ReadLine());
+                                }
+                            catch (Exception)
+                                { }
                             }
-                        catch (Exception)
-                            { }
+                        else
+                            {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("\nERROR, You can't have 2 duplicates!");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            }
                         break;
                     case ConsoleKey.Enter:
                         SaveSettings();
@@ -202,6 +297,7 @@ namespace Snake_Game
                         break;
                     }
                 }
+            while (keepGoing != true);
             SaveSettings();
             GraphicsMenu();
             }
@@ -279,5 +375,32 @@ namespace Snake_Game
                 { }
             }
 
+        /// <summary>
+        /// Validate if the settings are valid, you can't have multiple controls on the same key for example!
+        /// </summary>
+        /// <returns>True if no duplicates are found</returns>
+        static bool ValidateSetings(char changed)
+            {
+            string[] setting = new string[9];
+            setting[0] = $"{Control.moveLeft}";
+            setting[1] = $"{Control.moveRight}";
+            setting[2] = $"{Control.moveUp}";
+            setting[3] = $"{Control.moveDown}";
+            setting[4] = $"{Control.pause}";
+            setting[5] = $"{Asset.snakeHead}";
+            setting[6] = $"{Asset.snakeBody}";
+            setting[7] = $"{Asset.food}";
+            setting[8] = $"{Asset.death}";
+
+            for (int i = 0; i < setting.Length; i++)
+                {
+                if (setting[i] == changed.ToString())
+                    {
+                    return false;
+                    }
+                }
+
+            return true;
+            }
         }
     }
